@@ -1,4 +1,4 @@
-# Install script for directory: /media/slg/Storage/polydossier/pfe/code/app-template/main
+# Install script for directory: /media/slg/Storage/polydossier/pfe/code/airquality_sensor/main
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

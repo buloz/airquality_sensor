@@ -34,8 +34,8 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("/media/slg/Storage/polydossier/pfe/code/app-template/build/esp-idf/mbedtls/mbedtls/library/cmake_install.cmake")
-  include("/media/slg/Storage/polydossier/pfe/code/app-template/build/esp-idf/mbedtls/mbedtls/include/cmake_install.cmake")
+  include("/media/slg/Storage/polydossier/pfe/code/airquality_sensor/build/esp-idf/mbedtls/mbedtls/library/cmake_install.cmake")
+  include("/media/slg/Storage/polydossier/pfe/code/airquality_sensor/build/esp-idf/mbedtls/mbedtls/include/cmake_install.cmake")
 
 endif()
 
