@@ -1,0 +1,5 @@
+source "/home/slg/esp/esp-idf/components/app_update/Kconfig.projbuild"
+source "/home/slg/esp/esp-idf/components/bootloader/Kconfig.projbuild"
+source "/home/slg/esp/esp-idf/components/esptool_py/Kconfig.projbuild"
+source "/home/slg/esp/esp-idf/components/partition_table/Kconfig.projbuild"
+source "/media/slg/Storage/polydossier/pfe/code/app-template/main/Kconfig.projbuild"
