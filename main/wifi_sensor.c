@@ -27,62 +27,91 @@
 
 /* Declaration of event group to signal the WiFi connection */
 static EventGroupHandle_t s_wifi_event_group;
+
 #define WIFI_CONNECTED_BIT  BIT0
 #define WIFI_FAIL_BIT       BIT1
 
-extern const char *TAG;
+#define WIFI_MAXIMUM_RETRY 3
 
-static esp_err_t wifi_event_handler(void *arg, system_event_t *event)
+/* Used to store logs */
+//extern const char *TAG;
+
+static int s_retry_num = 0;
+
+static void wifi_event_handler(void* arg, esp_event_base_t event_base,
+                                int32_t event_id, void* event_data)
 {
-    switch (event->event_id) {
-        /* Connection event starting */
-        case SYSTEM_EVENT_STA_START:
+    if (event_base == WIFI_EVENT && event_id == WIFI_EVENT_STA_START) {
+        esp_wifi_connect();
+    } else if (event_base == WIFI_EVENT && event_id == WIFI_EVENT_STA_DISCONNECTED) {
+        if (s_retry_num < WIFI_MAXIMUM_RETRY) {
             esp_wifi_connect();
-            break;
-        /* IP addressed */
-        case SYSTEM_EVENT_STA_GOT_IP:
-            xEventGroupSetBits(s_wifi_event_group, WIFI_CONNECTED_BIT);
-            break;
-        /* SUCCESS WPS connection */
-        case SYSTEM_EVENT_STA_WPS_ER_SUCCESS:
-            xEventGroupClearBits(s_wifi_event_group, WIFI_FAIL_BIT);
-            break;
-        /* IP disconnection */
-        case SYSTEM_EVENT_STA_DISCONNECTED:
-            esp_wifi_connect();
-            xEventGroupClearBits(s_wifi_event_group, WIFI_CONNECTED_BIT);
-            break;
-        /* FAILED WPS connection */
-        case SYSTEM_EVENT_STA_WPS_ER_FAILED:
-            esp_wifi_connect();
+            s_retry_num++;
+            printf("retry to connect to the AP\n");
+        } else {
             xEventGroupSetBits(s_wifi_event_group, WIFI_FAIL_BIT);
-            break;
-        default:
-            break;
+        }
+        printf("connect to the AP fail\n");
+    } else if (event_base == IP_EVENT && event_id == IP_EVENT_STA_GOT_IP) {
+        ip_event_got_ip_t* event = (ip_event_got_ip_t*) event_data;
+        printf("got ip:\n" IPSTR, IP2STR(&event->ip_info.ip));
+        printf("\n");
+        s_retry_num = 0;
+        xEventGroupSetBits(s_wifi_event_group, WIFI_CONNECTED_BIT);
     }
-    return ESP_OK;
 }
 
 void wifi_init(void)
 {
     s_wifi_event_group = xEventGroupCreate();
-    ESP_ERROR_CHECK(esp_event_loop_init(wifi_event_handler, NULL));
+    ESP_ERROR_CHECK(esp_netif_init());
+    ESP_ERROR_CHECK(esp_event_loop_create_default());
+    esp_netif_create_default_wifi_sta();
+
     wifi_init_config_t cfg = WIFI_INIT_CONFIG_DEFAULT();
     ESP_ERROR_CHECK(esp_wifi_init(&cfg));
-    ESP_ERROR_CHECK(esp_wifi_set_storage(WIFI_STORAGE_RAM));
-    wifi_config_t wifi_config = {
-            .sta = {
-                    .ssid = CONFIG_ESP_WIFI_SSID,
-                    .password = CONFIG_ESP_WIFI_PASSWORD,
-            },
-    };
 
-    ESP_ERROR_CHECK(esp_wifi_set_mode(WIFI_MODE_STA));
-    ESP_ERROR_CHECK(esp_wifi_set_config(ESP_IF_WIFI_STA, &wifi_config));
-    //ESP_LOGI(TAG, "start the WIFI SSID:[%s]", CONFIG_ESP_WIFI_SSID);
-    printf("start the wifi SSID: [%s]", CONFIG_ESP_WIFI_SSID);
-    ESP_ERROR_CHECK(esp_wifi_start());
-    printf("waiting for wifi");
-    //ESP_LOGI(TAG, "Waiting for wifi");
-    xEventGroupWaitBits(s_wifi_event_group, WIFI_CONNECTED_BIT, false, true, portMAX_DELAY);
+    ESP_ERROR_CHECK(esp_event_handler_register(WIFI_EVENT, ESP_EVENT_ANY_ID, &wifi_event_handler, NULL));
+    ESP_ERROR_CHECK(esp_event_handler_register(IP_EVENT, IP_EVENT_STA_GOT_IP, &wifi_event_handler, NULL));
+
+    wifi_config_t wifi_config = {
+        .sta = {
+            .ssid = CONFIG_ESP_WIFI_SSID,
+            .password = CONFIG_ESP_WIFI_PASSWORD,
+            /* Setting a password implies station will connect to all security modes including WEP/WPA.
+             * However these modes are deprecated and not advisable to be used. Incase your Access point
+             * doesn't support WPA2, these mode can be enabled by commenting below line */
+	     .threshold.authmode = WIFI_AUTH_WPA2_PSK,
+
+            .pmf_cfg = {
+                .capable = true,
+                .required = false
+            },
+        },
+    };
+    ESP_ERROR_CHECK(esp_wifi_set_mode(WIFI_MODE_STA) );
+    ESP_ERROR_CHECK(esp_wifi_set_config(ESP_IF_WIFI_STA, &wifi_config) );
+    ESP_ERROR_CHECK(esp_wifi_start() );
+
+    printf("wifi_init_sta finished.\n");
+    printf("Waiting for wifi\n");
+    EventBits_t bits = xEventGroupWaitBits(s_wifi_event_group,
+                        WIFI_CONNECTED_BIT | WIFI_FAIL_BIT, 
+                        false, 
+                        false, 
+                        portMAX_DELAY);
+
+    if (bits & WIFI_CONNECTED_BIT) {
+       printf("connected to ap\nSSID:%s\npassword:%s\n",
+                 CONFIG_ESP_WIFI_SSID, CONFIG_ESP_WIFI_PASSWORD);
+    } else if (bits & WIFI_FAIL_BIT) {
+        printf("Failed to connect to\nSSID:%s\npassword:%s\n",
+                 CONFIG_ESP_WIFI_SSID, CONFIG_ESP_WIFI_PASSWORD);
+    } else {
+        printf("UNEXPECTED EVENT\n");
+    }
+
+    ESP_ERROR_CHECK(esp_event_handler_unregister(IP_EVENT, IP_EVENT_STA_GOT_IP, &wifi_event_handler));
+    ESP_ERROR_CHECK(esp_event_handler_unregister(WIFI_EVENT, ESP_EVENT_ANY_ID, &wifi_event_handler));
+    vEventGroupDelete(s_wifi_event_group);
 }
