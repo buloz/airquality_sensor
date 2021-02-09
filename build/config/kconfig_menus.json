@@ -1581,24 +1581,80 @@
     {
         "children": [
             {
-                "children": [],
+                "children": [
+                    {
+                        "children": [],
+                        "depends_on": null,
+                        "help": "SSID (network name) for the example to connect to.",
+                        "id": "ESP_WIFI_SSID",
+                        "name": "ESP_WIFI_SSID",
+                        "range": null,
+                        "title": "WiFi SSID",
+                        "type": "string"
+                    },
+                    {
+                        "children": [],
+                        "depends_on": null,
+                        "help": "WiFi password (WPA or WPA2) for the example to use.",
+                        "id": "ESP_WIFI_PASSWORD",
+                        "name": "ESP_WIFI_PASSWORD",
+                        "range": null,
+                        "title": "WiFi Password",
+                        "type": "string"
+                    }
+                ],
                 "depends_on": null,
-                "help": "SSID (network name) for the example to connect to.",
-                "id": "ESP_WIFI_SSID",
-                "name": "ESP_WIFI_SSID",
-                "range": null,
-                "title": "WiFi SSID",
-                "type": "string"
+                "id": "example-configuration-wifi",
+                "title": "WiFi",
+                "type": "menu"
             },
             {
-                "children": [],
+                "children": [
+                    {
+                        "children": [],
+                        "depends_on": null,
+                        "help": "GPIO number for I2C Master clock line.",
+                        "id": "I2C_MASTER_SCL",
+                        "name": "I2C_MASTER_SCL",
+                        "range": null,
+                        "title": "SCL GPIO Num",
+                        "type": "int"
+                    },
+                    {
+                        "children": [],
+                        "depends_on": null,
+                        "help": "GPIO number for I2C Master data line.",
+                        "id": "I2C_MASTER_SDA",
+                        "name": "I2C_MASTER_SDA",
+                        "range": null,
+                        "title": "SDA GPIO Num",
+                        "type": "int"
+                    },
+                    {
+                        "children": [],
+                        "depends_on": null,
+                        "help": "Port number for I2C Master device.",
+                        "id": "I2C_MASTER_PORT_NUM",
+                        "name": "I2C_MASTER_PORT_NUM",
+                        "range": null,
+                        "title": "Port Number",
+                        "type": "int"
+                    },
+                    {
+                        "children": [],
+                        "depends_on": null,
+                        "help": "I2C Speed of Master device.",
+                        "id": "I2C_MASTER_FREQUENCY",
+                        "name": "I2C_MASTER_FREQUENCY",
+                        "range": null,
+                        "title": "Master Frequency",
+                        "type": "int"
+                    }
+                ],
                 "depends_on": null,
-                "help": "WiFi password (WPA or WPA2) for the example to use.",
-                "id": "ESP_WIFI_PASSWORD",
-                "name": "ESP_WIFI_PASSWORD",
-                "range": null,
-                "title": "WiFi Password",
-                "type": "string"
+                "id": "example-configuration-i2c-master",
+                "title": "I2C Master",
+                "type": "menu"
             }
         ],
         "depends_on": null,
