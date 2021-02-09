@@ -73,7 +73,7 @@ void post_influx_datas(int64_t timestamp, float iaq, uint8_t iaq_accuracy, float
     char url_string[100];
     char token_string[100];
     sprintf(data_string, "measurements,host=%s temperature=%.2f,humidity=%.2f,pressure=%.0f,iaq=%.0f",CONFIG_SENSOR_NAME,temperature,humidity,pressure,iaq);
-    sprintf(url_string, "http://%s:%s/api/v2/write?org=test-org&bucket=test-buck&precision=s", CONFIG_STATION_IP, CONFIG_INFLUX_PORT);
+    sprintf(url_string, "http://%s:%s/api/v2/write?org=airqual-org&bucket=airqual-buck&precision=s", CONFIG_STATION_IP, CONFIG_INFLUX_PORT);
     sprintf(token_string, "Token %s", CONFIG_INFLUX_TOKEN);
 
     printf("url: %s\n", url_string);
