@@ -448,7 +448,7 @@ static void bme680_bsec_process_data(bsec_input_t *bsec_inputs, uint8_t num_bsec
  *
  * @return      none
  */
-void bsec_iot_loop(sleep_fct sleep, get_timestamp_us_fct get_timestamp_us, output_ready_fct output_ready,
+void bsec_iot_measure(sleep_fct sleep, get_timestamp_us_fct get_timestamp_us, output_ready_fct output_ready,
                     state_save_fct state_save, uint32_t save_intvl)
 {
     /* Timestamp variables */

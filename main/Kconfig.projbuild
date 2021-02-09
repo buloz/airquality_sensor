@@ -1,15 +1,15 @@
 # put here your custom config value
-menu "Example Configuration"
+menu "Ariqual Configuration"
     menu "WiFi"
         config ESP_WIFI_SSID
             string "WiFi SSID"
-            default "myssid"
+            default "Airqual-station"
             help
 	        SSID (network name) for the example to connect to.
 
         config ESP_WIFI_PASSWORD
             string "WiFi Password"
-            default "mypassword"
+            default "AardvarkBadgerHedgehog"
             help
             WiFi password (WPA or WPA2) for the example to use.        
     endmenu
@@ -37,5 +37,32 @@ menu "Example Configuration"
             default 100000
             help
                 I2C Speed of Master device.
+    endmenu
+    menu "Airqual"
+        config SENSOR_NAME
+            string "Sensor name"
+            default "airqualXX"
+            help
+                Name of the sensor.
+        config STATION_IP
+            string "Station IP"
+            default "192.168.10.2"
+            help
+                IP address of the base station.
+        config INFLUX_PORT
+            string "InfluxDB port"
+            default "8086"
+            help
+                Listening port for InfluxDB in the station.
+        config INFLUX_TOKEN
+            string "InfluxDB Authorization token"
+            default "MyDefaultToken"
+            help
+                Token for POST authorization on InfluxDB.
+        config WAKEUP_TIME_US
+            int "Refresh time"
+            default 600000000
+            help 
+                Wake up time in microseconds.
     endmenu
 endmenu

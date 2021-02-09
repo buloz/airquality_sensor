@@ -3,9 +3,15 @@
 // Created by buloz on 18/01/2021.
 //
 
-#ifndef DEEPSLEEP2_WIFI_H
-#define DEEPSLEEP2_WIFI_H
+#ifndef __WIFI_SENSOR_H__
+#define __WIFI_SENSOR_H__
 
-void wifi_init(void);
+#ifdef __cplusplus
+extern "C"
+{
+#endif
 
-#endif //DEEPSLEEP2_WIFI_H
+
+esp_err_t wifi_init(void);
+
+#endif //__WIFI_SENSOR_H__

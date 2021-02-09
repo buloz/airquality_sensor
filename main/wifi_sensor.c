@@ -61,8 +61,9 @@ static void wifi_event_handler(void* arg, esp_event_base_t event_base,
     }
 }
 
-void wifi_init(void)
+esp_err_t wifi_init(void)
 {
+    esp_err_t ret = ESP_OK;
     s_wifi_event_group = xEventGroupCreate();
     ESP_ERROR_CHECK(esp_netif_init());
     ESP_ERROR_CHECK(esp_event_loop_create_default());
@@ -93,8 +94,6 @@ void wifi_init(void)
     ESP_ERROR_CHECK(esp_wifi_set_config(ESP_IF_WIFI_STA, &wifi_config) );
     ESP_ERROR_CHECK(esp_wifi_start() );
 
-    printf("wifi_init_sta finished.\n");
-    printf("Waiting for wifi\n");
     EventBits_t bits = xEventGroupWaitBits(s_wifi_event_group,
                         WIFI_CONNECTED_BIT | WIFI_FAIL_BIT, 
                         false, 
@@ -102,16 +101,15 @@ void wifi_init(void)
                         portMAX_DELAY);
 
     if (bits & WIFI_CONNECTED_BIT) {
-       printf("connected to ap\nSSID:%s\npassword:%s\n",
-                 CONFIG_ESP_WIFI_SSID, CONFIG_ESP_WIFI_PASSWORD);
+        ret = ESP_OK;
     } else if (bits & WIFI_FAIL_BIT) {
-        printf("Failed to connect to\nSSID:%s\npassword:%s\n",
-                 CONFIG_ESP_WIFI_SSID, CONFIG_ESP_WIFI_PASSWORD);
+        ret = ESP_FAIL;
     } else {
-        printf("UNEXPECTED EVENT\n");
+        printf("UNEXPECTED EVENT wifi_init()\n");
     }
 
     ESP_ERROR_CHECK(esp_event_handler_unregister(IP_EVENT, IP_EVENT_STA_GOT_IP, &wifi_event_handler));
     ESP_ERROR_CHECK(esp_event_handler_unregister(WIFI_EVENT, ESP_EVENT_ANY_ID, &wifi_event_handler));
     vEventGroupDelete(s_wifi_event_group);
+    return ret;
 }

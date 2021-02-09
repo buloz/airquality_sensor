@@ -1604,7 +1604,7 @@
                     }
                 ],
                 "depends_on": null,
-                "id": "example-configuration-wifi",
+                "id": "ariqual-configuration-wifi",
                 "title": "WiFi",
                 "type": "menu"
             },
@@ -1652,14 +1652,72 @@
                     }
                 ],
                 "depends_on": null,
-                "id": "example-configuration-i2c-master",
+                "id": "ariqual-configuration-i2c-master",
                 "title": "I2C Master",
+                "type": "menu"
+            },
+            {
+                "children": [
+                    {
+                        "children": [],
+                        "depends_on": null,
+                        "help": "Name of the sensor.",
+                        "id": "SENSOR_NAME",
+                        "name": "SENSOR_NAME",
+                        "range": null,
+                        "title": "Sensor name",
+                        "type": "string"
+                    },
+                    {
+                        "children": [],
+                        "depends_on": null,
+                        "help": "IP address of the base station.",
+                        "id": "STATION_IP",
+                        "name": "STATION_IP",
+                        "range": null,
+                        "title": "Station IP",
+                        "type": "string"
+                    },
+                    {
+                        "children": [],
+                        "depends_on": null,
+                        "help": "Listening port for InfluxDB in the station.",
+                        "id": "INFLUX_PORT",
+                        "name": "INFLUX_PORT",
+                        "range": null,
+                        "title": "InfluxDB port",
+                        "type": "string"
+                    },
+                    {
+                        "children": [],
+                        "depends_on": null,
+                        "help": "Token for POST authorization on InfluxDB.",
+                        "id": "INFLUX_TOKEN",
+                        "name": "INFLUX_TOKEN",
+                        "range": null,
+                        "title": "InfluxDB Authorization token",
+                        "type": "string"
+                    },
+                    {
+                        "children": [],
+                        "depends_on": null,
+                        "help": "Wake up time in microseconds.",
+                        "id": "WAKEUP_TIME_US",
+                        "name": "WAKEUP_TIME_US",
+                        "range": null,
+                        "title": "Refresh time",
+                        "type": "int"
+                    }
+                ],
+                "depends_on": null,
+                "id": "ariqual-configuration-airqual",
+                "title": "Airqual",
                 "type": "menu"
             }
         ],
         "depends_on": null,
-        "id": "example-configuration",
-        "title": "Example Configuration",
+        "id": "ariqual-configuration",
+        "title": "Ariqual Configuration",
         "type": "menu"
     },
     {

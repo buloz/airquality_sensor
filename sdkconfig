@@ -119,7 +119,7 @@ CONFIG_PARTITION_TABLE_MD5=y
 # end of Partition Table
 
 #
-# Example Configuration
+# Ariqual Configuration
 #
 
 #
@@ -137,7 +137,17 @@ CONFIG_I2C_MASTER_SDA=21
 CONFIG_I2C_MASTER_PORT_NUM=1
 CONFIG_I2C_MASTER_FREQUENCY=100000
 # end of I2C Master
-# end of Example Configuration
+
+#
+# Airqual
+#
+CONFIG_SENSOR_NAME="airqualXX"
+CONFIG_STATION_IP="192.168.10.12"
+CONFIG_INFLUX_PORT="8086"
+CONFIG_INFLUX_TOKEN="i7emevL3uktI5AfQVp-JMnSmN7mDzVdEWje3lJpd5oxp_qPVIfmo5SoVxQlHKzaIw-L5ofXB4xShXsTOiIth0Q=="
+CONFIG_WAKEUP_TIME_US=15000000
+# end of Airqual
+# end of Ariqual Configuration
 
 #
 # Compiler options
@@ -382,7 +392,7 @@ CONFIG_ESP_EVENT_POST_FROM_IRAM_ISR=y
 # ESP HTTP client
 #
 CONFIG_ESP_HTTP_CLIENT_ENABLE_HTTPS=y
-# CONFIG_ESP_HTTP_CLIENT_ENABLE_BASIC_AUTH is not set
+CONFIG_ESP_HTTP_CLIENT_ENABLE_BASIC_AUTH=y
 # end of ESP HTTP client
 
 #

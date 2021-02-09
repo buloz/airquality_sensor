@@ -174,14 +174,14 @@ build size: phony CMakeFiles/size bootloader.elf
 # Custom command for CMakeFiles/size-components
 
 build CMakeFiles/size-components: CUSTOM_COMMAND bootloader.elf || _project_elf_src bootloader.elf esp-idf/bootloader_support/libbootloader_support.a esp-idf/efuse/libefuse.a esp-idf/log/liblog.a esp-idf/main/libmain.a esp-idf/micro-ecc/libmicro-ecc.a esp-idf/soc/libsoc.a esp-idf/spi_flash/libspi_flash.a
-  COMMAND = cd /media/slg/Storage/polydossier/pfe/code/airquality_sensor/build/bootloader && /home/slg/.espressif/python_env/idf4.1_py3.7_env/bin/python /home/slg/esp/esp-idf/tools/idf_size.py --archives /media/slg/Storage/polydossier/pfe/code/airquality_sensor/build/bootloader/bootloader.map
+  COMMAND = cd /media/slg/Storage/polydossier/pfe/code/airquality_sensor/build/bootloader && /media/slg/Storage/darkside/snap/anaconda3/bin/python /home/slg/esp/esp-idf/tools/idf_size.py --archives /media/slg/Storage/polydossier/pfe/code/airquality_sensor/build/bootloader/bootloader.map
 
 
 #############################################
 # Custom command for CMakeFiles/menuconfig
 
 build CMakeFiles/menuconfig: CUSTOM_COMMAND
-  COMMAND = cd /media/slg/Storage/polydossier/pfe/code/airquality_sensor/build/bootloader && /home/slg/.espressif/python_env/idf4.1_py3.7_env/bin/python /home/slg/esp/esp-idf/tools/kconfig_new/prepare_kconfig_files.py --env-file /media/slg/Storage/polydossier/pfe/code/airquality_sensor/build/bootloader/config.env && /home/slg/.espressif/python_env/idf4.1_py3.7_env/bin/python /home/slg/esp/esp-idf/tools/kconfig_new/confgen.py --kconfig /home/slg/esp/esp-idf/Kconfig --sdkconfig-rename /home/slg/esp/esp-idf/sdkconfig.rename --config /media/slg/Storage/polydossier/pfe/code/airquality_sensor/sdkconfig --env-file /media/slg/Storage/polydossier/pfe/code/airquality_sensor/build/bootloader/config.env --env IDF_TARGET=esp32 --dont-write-deprecated --output config /media/slg/Storage/polydossier/pfe/code/airquality_sensor/sdkconfig && /home/slg/.espressif/python_env/idf4.1_py3.7_env/bin/python /home/slg/esp/esp-idf/tools/check_term.py && /usr/bin/cmake -E env COMPONENT_KCONFIGS_SOURCE_FILE=/media/slg/Storage/polydossier/pfe/code/airquality_sensor/build/bootloader/kconfigs.in COMPONENT_KCONFIGS_PROJBUILD_SOURCE_FILE=/media/slg/Storage/polydossier/pfe/code/airquality_sensor/build/bootloader/kconfigs_projbuild.in IDF_CMAKE=y KCONFIG_CONFIG=/media/slg/Storage/polydossier/pfe/code/airquality_sensor/sdkconfig IDF_TARGET=esp32 /home/slg/.espressif/python_env/idf4.1_py3.7_env/bin/python /home/slg/esp/esp-idf/tools/kconfig_new/menuconfig.py /home/slg/esp/esp-idf/Kconfig && /home/slg/.espressif/python_env/idf4.1_py3.7_env/bin/python /home/slg/esp/esp-idf/tools/kconfig_new/confgen.py --kconfig /home/slg/esp/esp-idf/Kconfig --sdkconfig-rename /home/slg/esp/esp-idf/sdkconfig.rename --config /media/slg/Storage/polydossier/pfe/code/airquality_sensor/sdkconfig --env-file /media/slg/Storage/polydossier/pfe/code/airquality_sensor/build/bootloader/config.env --env IDF_TARGET=esp32 --output config /media/slg/Storage/polydossier/pfe/code/airquality_sensor/sdkconfig
+  COMMAND = cd /media/slg/Storage/polydossier/pfe/code/airquality_sensor/build/bootloader && /media/slg/Storage/darkside/snap/anaconda3/bin/python /home/slg/esp/esp-idf/tools/kconfig_new/prepare_kconfig_files.py --env-file /media/slg/Storage/polydossier/pfe/code/airquality_sensor/build/bootloader/config.env && /media/slg/Storage/darkside/snap/anaconda3/bin/python /home/slg/esp/esp-idf/tools/kconfig_new/confgen.py --kconfig /home/slg/esp/esp-idf/Kconfig --sdkconfig-rename /home/slg/esp/esp-idf/sdkconfig.rename --config /media/slg/Storage/polydossier/pfe/code/airquality_sensor/sdkconfig --env-file /media/slg/Storage/polydossier/pfe/code/airquality_sensor/build/bootloader/config.env --env IDF_TARGET=esp32 --dont-write-deprecated --output config /media/slg/Storage/polydossier/pfe/code/airquality_sensor/sdkconfig && /media/slg/Storage/darkside/snap/anaconda3/bin/python /home/slg/esp/esp-idf/tools/check_term.py && /usr/bin/cmake -E env COMPONENT_KCONFIGS_SOURCE_FILE=/media/slg/Storage/polydossier/pfe/code/airquality_sensor/build/bootloader/kconfigs.in COMPONENT_KCONFIGS_PROJBUILD_SOURCE_FILE=/media/slg/Storage/polydossier/pfe/code/airquality_sensor/build/bootloader/kconfigs_projbuild.in IDF_CMAKE=y KCONFIG_CONFIG=/media/slg/Storage/polydossier/pfe/code/airquality_sensor/sdkconfig IDF_TARGET=esp32 /media/slg/Storage/darkside/snap/anaconda3/bin/python /home/slg/esp/esp-idf/tools/kconfig_new/menuconfig.py /home/slg/esp/esp-idf/Kconfig && /media/slg/Storage/darkside/snap/anaconda3/bin/python /home/slg/esp/esp-idf/tools/kconfig_new/confgen.py --kconfig /home/slg/esp/esp-idf/Kconfig --sdkconfig-rename /home/slg/esp/esp-idf/sdkconfig.rename --config /media/slg/Storage/polydossier/pfe/code/airquality_sensor/sdkconfig --env-file /media/slg/Storage/polydossier/pfe/code/airquality_sensor/build/bootloader/config.env --env IDF_TARGET=esp32 --output config /media/slg/Storage/polydossier/pfe/code/airquality_sensor/sdkconfig
   pool = console
 
 
@@ -189,7 +189,7 @@ build CMakeFiles/menuconfig: CUSTOM_COMMAND
 # Custom command for CMakeFiles/flash
 
 build CMakeFiles/flash: CUSTOM_COMMAND /home/slg/esp/esp-idf/components/bootloader/subproject/partition_table /home/slg/esp/esp-idf/components/bootloader/subproject/bootloader || _project_elf_src app bootloader.elf esp-idf/bootloader_support/libbootloader_support.a esp-idf/efuse/libefuse.a esp-idf/log/liblog.a esp-idf/main/libmain.a esp-idf/micro-ecc/libmicro-ecc.a esp-idf/soc/libsoc.a esp-idf/spi_flash/libspi_flash.a gen_project_binary
-  COMMAND = cd /home/slg/esp/esp-idf/components/esptool_py && /usr/bin/cmake -D IDF_PATH="/home/slg/esp/esp-idf" -D ESPTOOLPY="/home/slg/.espressif/python_env/idf4.1_py3.7_env/bin/python /home/slg/esp/esp-idf/components/esptool_py/esptool/esptool.py --chip esp32" -D ESPTOOL_ARGS="write_flash @flash_project_args" -D WORKING_DIRECTORY="/media/slg/Storage/polydossier/pfe/code/airquality_sensor/build/bootloader" -P /home/slg/esp/esp-idf/components/esptool_py/run_esptool.cmake
+  COMMAND = cd /home/slg/esp/esp-idf/components/esptool_py && /usr/bin/cmake -D IDF_PATH="/home/slg/esp/esp-idf" -D ESPTOOLPY="/media/slg/Storage/darkside/snap/anaconda3/bin/python /home/slg/esp/esp-idf/components/esptool_py/esptool/esptool.py --chip esp32" -D ESPTOOL_ARGS="write_flash @flash_project_args" -D WORKING_DIRECTORY="/media/slg/Storage/polydossier/pfe/code/airquality_sensor/build/bootloader" -P /home/slg/esp/esp-idf/components/esptool_py/run_esptool.cmake
   pool = console
 
 
@@ -197,7 +197,7 @@ build CMakeFiles/flash: CUSTOM_COMMAND /home/slg/esp/esp-idf/components/bootload
 # Custom command for CMakeFiles/confserver
 
 build CMakeFiles/confserver: CUSTOM_COMMAND
-  COMMAND = cd /media/slg/Storage/polydossier/pfe/code/airquality_sensor/build/bootloader && /home/slg/.espressif/python_env/idf4.1_py3.7_env/bin/python /home/slg/esp/esp-idf/tools/kconfig_new/prepare_kconfig_files.py --env-file /media/slg/Storage/polydossier/pfe/code/airquality_sensor/build/bootloader/config.env && /home/slg/.espressif/python_env/idf4.1_py3.7_env/bin/python /home/slg/esp/esp-idf/tools/kconfig_new/confserver.py --env-file /media/slg/Storage/polydossier/pfe/code/airquality_sensor/build/bootloader/config.env --kconfig /home/slg/esp/esp-idf/Kconfig --sdkconfig-rename /home/slg/esp/esp-idf/sdkconfig.rename --config /media/slg/Storage/polydossier/pfe/code/airquality_sensor/sdkconfig
+  COMMAND = cd /media/slg/Storage/polydossier/pfe/code/airquality_sensor/build/bootloader && /media/slg/Storage/darkside/snap/anaconda3/bin/python /home/slg/esp/esp-idf/tools/kconfig_new/prepare_kconfig_files.py --env-file /media/slg/Storage/polydossier/pfe/code/airquality_sensor/build/bootloader/config.env && /media/slg/Storage/darkside/snap/anaconda3/bin/python /home/slg/esp/esp-idf/tools/kconfig_new/confserver.py --env-file /media/slg/Storage/polydossier/pfe/code/airquality_sensor/build/bootloader/config.env --kconfig /home/slg/esp/esp-idf/Kconfig --sdkconfig-rename /home/slg/esp/esp-idf/sdkconfig.rename --config /media/slg/Storage/polydossier/pfe/code/airquality_sensor/sdkconfig
   pool = console
 
 
@@ -220,7 +220,7 @@ build CMakeFiles/gen_project_binary: phony .bin_timestamp || _project_elf_src bo
 # Custom command for .bin_timestamp
 
 build .bin_timestamp: CUSTOM_COMMAND bootloader.elf || _project_elf_src bootloader.elf esp-idf/bootloader_support/libbootloader_support.a esp-idf/efuse/libefuse.a esp-idf/log/liblog.a esp-idf/main/libmain.a esp-idf/micro-ecc/libmicro-ecc.a esp-idf/soc/libsoc.a esp-idf/spi_flash/libspi_flash.a
-  COMMAND = cd /media/slg/Storage/polydossier/pfe/code/airquality_sensor/build/bootloader && /home/slg/.espressif/python_env/idf4.1_py3.7_env/bin/python /home/slg/esp/esp-idf/components/esptool_py/esptool/esptool.py --chip esp32 elf2image --flash_mode dio --flash_freq 40m --flash_size 2MB -o /media/slg/Storage/polydossier/pfe/code/airquality_sensor/build/bootloader/bootloader.bin bootloader.elf && /usr/bin/cmake -E echo "Generated /media/slg/Storage/polydossier/pfe/code/airquality_sensor/build/bootloader/bootloader.bin" && /usr/bin/cmake -E md5sum /media/slg/Storage/polydossier/pfe/code/airquality_sensor/build/bootloader/bootloader.bin > /media/slg/Storage/polydossier/pfe/code/airquality_sensor/build/bootloader/.bin_timestamp
+  COMMAND = cd /media/slg/Storage/polydossier/pfe/code/airquality_sensor/build/bootloader && /media/slg/Storage/darkside/snap/anaconda3/bin/python /home/slg/esp/esp-idf/components/esptool_py/esptool/esptool.py --chip esp32 elf2image --flash_mode dio --flash_freq 40m --flash_size 2MB -o /media/slg/Storage/polydossier/pfe/code/airquality_sensor/build/bootloader/bootloader.bin bootloader.elf && /usr/bin/cmake -E echo "Generated /media/slg/Storage/polydossier/pfe/code/airquality_sensor/build/bootloader/bootloader.bin" && /usr/bin/cmake -E md5sum /media/slg/Storage/polydossier/pfe/code/airquality_sensor/build/bootloader/bootloader.bin > /media/slg/Storage/polydossier/pfe/code/airquality_sensor/build/bootloader/.bin_timestamp
   DESC = Generating binary image from built executable
   restat = 1
 
@@ -235,7 +235,7 @@ build CMakeFiles/app: phony || _project_elf_src bootloader.elf esp-idf/bootloade
 # Custom command for CMakeFiles/app-flash
 
 build CMakeFiles/app-flash: CUSTOM_COMMAND || _project_elf_src app bootloader.elf esp-idf/bootloader_support/libbootloader_support.a esp-idf/efuse/libefuse.a esp-idf/log/liblog.a esp-idf/main/libmain.a esp-idf/micro-ecc/libmicro-ecc.a esp-idf/soc/libsoc.a esp-idf/spi_flash/libspi_flash.a gen_project_binary
-  COMMAND = cd /home/slg/esp/esp-idf/components/esptool_py && /usr/bin/cmake -D IDF_PATH="/home/slg/esp/esp-idf" -D ESPTOOLPY="/home/slg/.espressif/python_env/idf4.1_py3.7_env/bin/python /home/slg/esp/esp-idf/components/esptool_py/esptool/esptool.py --chip esp32" -D ESPTOOL_ARGS="write_flash @flash_app_args" -D WORKING_DIRECTORY="/media/slg/Storage/polydossier/pfe/code/airquality_sensor/build/bootloader" -P /home/slg/esp/esp-idf/components/esptool_py/run_esptool.cmake
+  COMMAND = cd /home/slg/esp/esp-idf/components/esptool_py && /usr/bin/cmake -D IDF_PATH="/home/slg/esp/esp-idf" -D ESPTOOLPY="/media/slg/Storage/darkside/snap/anaconda3/bin/python /home/slg/esp/esp-idf/components/esptool_py/esptool/esptool.py --chip esp32" -D ESPTOOL_ARGS="write_flash @flash_app_args" -D WORKING_DIRECTORY="/media/slg/Storage/polydossier/pfe/code/airquality_sensor/build/bootloader" -P /home/slg/esp/esp-idf/components/esptool_py/run_esptool.cmake
   pool = console
 
 
@@ -243,7 +243,7 @@ build CMakeFiles/app-flash: CUSTOM_COMMAND || _project_elf_src app bootloader.el
 # Custom command for CMakeFiles/erase_flash
 
 build CMakeFiles/erase_flash: CUSTOM_COMMAND
-  COMMAND = cd /home/slg/esp/esp-idf/components/esptool_py && /usr/bin/cmake -D IDF_PATH="/home/slg/esp/esp-idf" -D ESPTOOLPY="/home/slg/.espressif/python_env/idf4.1_py3.7_env/bin/python /home/slg/esp/esp-idf/components/esptool_py/esptool/esptool.py --chip esp32" -D ESPTOOL_ARGS="erase_flash" -P run_esptool.cmake
+  COMMAND = cd /home/slg/esp/esp-idf/components/esptool_py && /usr/bin/cmake -D IDF_PATH="/home/slg/esp/esp-idf" -D ESPTOOLPY="/media/slg/Storage/darkside/snap/anaconda3/bin/python /home/slg/esp/esp-idf/components/esptool_py/esptool/esptool.py --chip esp32" -D ESPTOOL_ARGS="erase_flash" -P run_esptool.cmake
   pool = console
 
 
@@ -279,14 +279,14 @@ build CMakeFiles/encrypted-app-flash: CUSTOM_COMMAND
 # Custom command for CMakeFiles/size-files
 
 build CMakeFiles/size-files: CUSTOM_COMMAND bootloader.elf || _project_elf_src bootloader.elf esp-idf/bootloader_support/libbootloader_support.a esp-idf/efuse/libefuse.a esp-idf/log/liblog.a esp-idf/main/libmain.a esp-idf/micro-ecc/libmicro-ecc.a esp-idf/soc/libsoc.a esp-idf/spi_flash/libspi_flash.a
-  COMMAND = cd /media/slg/Storage/polydossier/pfe/code/airquality_sensor/build/bootloader && /home/slg/.espressif/python_env/idf4.1_py3.7_env/bin/python /home/slg/esp/esp-idf/tools/idf_size.py --files /media/slg/Storage/polydossier/pfe/code/airquality_sensor/build/bootloader/bootloader.map
+  COMMAND = cd /media/slg/Storage/polydossier/pfe/code/airquality_sensor/build/bootloader && /media/slg/Storage/darkside/snap/anaconda3/bin/python /home/slg/esp/esp-idf/tools/idf_size.py --files /media/slg/Storage/polydossier/pfe/code/airquality_sensor/build/bootloader/bootloader.map
 
 
 #############################################
 # Custom command for CMakeFiles/size
 
 build CMakeFiles/size: CUSTOM_COMMAND bootloader.elf || _project_elf_src bootloader.elf esp-idf/bootloader_support/libbootloader_support.a esp-idf/efuse/libefuse.a esp-idf/log/liblog.a esp-idf/main/libmain.a esp-idf/micro-ecc/libmicro-ecc.a esp-idf/soc/libsoc.a esp-idf/spi_flash/libspi_flash.a
-  COMMAND = cd /media/slg/Storage/polydossier/pfe/code/airquality_sensor/build/bootloader && /home/slg/.espressif/python_env/idf4.1_py3.7_env/bin/python /home/slg/esp/esp-idf/tools/idf_size.py /media/slg/Storage/polydossier/pfe/code/airquality_sensor/build/bootloader/bootloader.map
+  COMMAND = cd /media/slg/Storage/polydossier/pfe/code/airquality_sensor/build/bootloader && /media/slg/Storage/darkside/snap/anaconda3/bin/python /home/slg/esp/esp-idf/tools/idf_size.py /media/slg/Storage/polydossier/pfe/code/airquality_sensor/build/bootloader/bootloader.map
 
 # =============================================================================
 # Write statements declared in CMakeLists.txt:
@@ -1226,21 +1226,21 @@ build esp-idf/efuse/libefuse.a: C_STATIC_LIBRARY_LINKER____idf_efuse esp-idf/efu
 # Custom command for esp-idf/efuse/CMakeFiles/efuse_test_table
 
 build esp-idf/efuse/CMakeFiles/efuse_test_table: CUSTOM_COMMAND
-  COMMAND = cd /media/slg/Storage/polydossier/pfe/code/airquality_sensor/build/bootloader/esp-idf/efuse && /home/slg/.espressif/python_env/idf4.1_py3.7_env/bin/python /home/slg/esp/esp-idf/components/efuse/efuse_table_gen.py /home/slg/esp/esp-idf/components/efuse/test/esp_efuse_test_table.csv -t esp32 --max_blk_len 192
+  COMMAND = cd /media/slg/Storage/polydossier/pfe/code/airquality_sensor/build/bootloader/esp-idf/efuse && /media/slg/Storage/darkside/snap/anaconda3/bin/python /home/slg/esp/esp-idf/components/efuse/efuse_table_gen.py /home/slg/esp/esp-idf/components/efuse/test/esp_efuse_test_table.csv -t esp32 --max_blk_len 192
 
 
 #############################################
 # Custom command for esp-idf/efuse/CMakeFiles/show_efuse_table
 
 build esp-idf/efuse/CMakeFiles/show_efuse_table: CUSTOM_COMMAND
-  COMMAND = cd /media/slg/Storage/polydossier/pfe/code/airquality_sensor/build/bootloader/esp-idf/efuse && /home/slg/.espressif/python_env/idf4.1_py3.7_env/bin/python /home/slg/esp/esp-idf/components/efuse/efuse_table_gen.py /home/slg/esp/esp-idf/components/efuse/esp32/esp_efuse_table.csv -t esp32 --max_blk_len 192 --info
+  COMMAND = cd /media/slg/Storage/polydossier/pfe/code/airquality_sensor/build/bootloader/esp-idf/efuse && /media/slg/Storage/darkside/snap/anaconda3/bin/python /home/slg/esp/esp-idf/components/efuse/efuse_table_gen.py /home/slg/esp/esp-idf/components/efuse/esp32/esp_efuse_table.csv -t esp32 --max_blk_len 192 --info
 
 
 #############################################
 # Custom command for esp-idf/efuse/CMakeFiles/efuse_common_table
 
 build esp-idf/efuse/CMakeFiles/efuse_common_table: CUSTOM_COMMAND
-  COMMAND = cd /media/slg/Storage/polydossier/pfe/code/airquality_sensor/build/bootloader/esp-idf/efuse && /home/slg/.espressif/python_env/idf4.1_py3.7_env/bin/python /home/slg/esp/esp-idf/components/efuse/efuse_table_gen.py /home/slg/esp/esp-idf/components/efuse/esp32/esp_efuse_table.csv -t esp32 --max_blk_len 192
+  COMMAND = cd /media/slg/Storage/polydossier/pfe/code/airquality_sensor/build/bootloader/esp-idf/efuse && /media/slg/Storage/darkside/snap/anaconda3/bin/python /home/slg/esp/esp-idf/components/efuse/efuse_table_gen.py /home/slg/esp/esp-idf/components/efuse/esp32/esp_efuse_table.csv -t esp32 --max_blk_len 192
 
 # =============================================================================
 # Write statements declared in CMakeLists.txt:
