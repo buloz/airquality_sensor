@@ -1,5 +1,5 @@
-set(COMPONENT_SRCS "bme680.c" "bsec_integration.c" "http_custom_client.c" "bme_dependency.c" "i2c_custom.c" "wifi_sensor.c" "main.c" )
-set(COMPONENT_ADD_INCLUDEDIRS ".")
+set(COMPONENT_SRCS "include_bme/bme680.c" "include_bme/bsec_integration.c" "include_custom/http_custom_client.c" "include_custom/bme_dependency.c" "include_custom/i2c_custom.c" "include_custom/wifi_sensor.c" "main.c" )
+set(COMPONENT_ADD_INCLUDEDIRS "include_bme" "include_custom")
 
 # Edit following two lines to set component requirements (see docs)
 set(COMPONENT_REQUIRES)
